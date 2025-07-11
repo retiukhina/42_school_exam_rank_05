@@ -56,7 +56,7 @@ void BST::printInOrderPrivate(node* Ptr) {
         }
         cout << Ptr->key << " ";
         if (Ptr->right != NULL) {
-            printInOrderPrivate(Ptr->left);
+            printInOrderPrivate(Ptr->right);
         }
     }
     else {
