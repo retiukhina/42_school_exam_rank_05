@@ -73,6 +73,6 @@ vect2& vect2::operator+=(const vect2& other) {
     return *this;
 }
 
-int& vect2::operator[](int index) {
+int vect2::operator[](int index) {
     return _arr[index];
 }
