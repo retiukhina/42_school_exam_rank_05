@@ -60,6 +60,6 @@ void BST::printInOrderPrivate(node* Ptr) {
         }
     }
     else {
-        cout << "The tree is empty!\n";
+        cout << "The tree is empty!";
     }
 }

@@ -18,5 +18,6 @@ int main() {
         myTree.addLeaf(treeKeys[i]);
     }
     myTree.printInOrder();
+    cout << endl;
 }
 
