@@ -13,10 +13,10 @@ int main() {
     cout << "Printing the tree before adding numbers\n";
     myTree.printInOrder();
 
-    cout << "Printing the tree after adding numbers\n";
     for (int i = 0; i < 16; i++) {
         myTree.addLeaf(treeKeys[i]);
     }
+    cout << "Printing the tree after adding numbers\n";
     myTree.printInOrder();
     cout << endl;
 }
