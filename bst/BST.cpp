@@ -45,7 +45,7 @@ void BST::printInOrder() {
     printInOrderPrivate(root);
 }
 
-// in-order traversal
+// in-order traversal:
 // 1. go left
 // 2. process current node
 // 3. go right
