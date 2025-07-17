@@ -2,8 +2,7 @@
 
 checks whether the object is being assigned to itself — that is, it prevents self-assignment.
 
-🔁 Why check for self-assignment?
-When we do:
+Remember to check for self-assignment. Why? When we do:
 
 `vect2 a;`
 `// ... do something ...`
@@ -24,27 +23,28 @@ Without this check, the assignment operator would proceed to copy the data from 
 
 Used for printing our vect2 class to an output stream (like std::cout).
 
-🔁 Return value std::ostream&
+Return value `std::ostream&`:
+
 Returning a reference to the stream allows us to chain output operations, like:
 
 `std::cout << v1 << v2 << std::endl;`
 Each << operator must return the stream so the next << can use it.
 
-📥 Parameters
+Parameters:
 
-`std::ostream& os`
+1. `std::ostream& os`
 The first parameter is the output stream we're printing to (std::cout, std::ofstream, etc.).
 
 It's a non-const reference because we're modifying it by inserting data into it.
 
-`const vect2& v`
+2. `const vect2& v`
 The second parameter is our vect2 object being printed.
 Passed as a const reference to:
 
 Avoid unnecessary copying
 Guarantee we won't modify `v` during printing
 
-# `+ AND += OVERLOADING`
+# `+, -, * AND +=, -=, *= OVERLOADING`
 
 operator+ should reuse operator+=.
 
@@ -62,7 +62,7 @@ Copy the left-hand operand (*this)
 Apply += to the copy
 Return the result
 
-🔁 Return value in operator+
+Return value in `operator+`
 
 Returning const prevents move assignment and chaining like:
 
