@@ -72,7 +72,11 @@ vect2 vect2::operator+(const vect2& other) const {
     return sum;
 }
 
-int vect2::operator[](int index) {
+int& vect2::operator[](int index) {
+    return _arr[index];
+}
+
+int vect2::operator[](int index) const {
     return _arr[index];
 }
 
@@ -89,4 +93,29 @@ vect2 vect2::operator++(int) {
     vect2 tmp = *this;
     ++(*this);
     return tmp; 
+}
+
+//prefix decrement
+vect2& vect2::operator--() {
+    --_x;
+    --_y;
+    createVector();
+    return *this;
+}
+
+//postfix decrement
+vect2 vect2::operator--(int) {
+    vect2 tmp = *this;
+    --(*this);
+    return tmp;
+}
+
+vect2 vect2::operator*(int scalar) const {
+    vect2 mult(_x * scalar, _y * scalar);
+    mult.createVector();
+    return mult;
+}
+
+vect2 operator*(int scalar, const vect2& v) {
+    return v * scalar;
 }
