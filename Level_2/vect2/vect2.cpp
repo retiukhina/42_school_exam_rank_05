@@ -56,15 +56,6 @@ bool vect2::operator==(const vect2& other) const {
         _arr[1] == other._arr[1]);
 }
 
-// returns rvalue
-const vect2 vect2::operator+(const vect2& other) const {
-    vect2 sum = *this;
-    sum._x = _x + other._x;
-    sum._y = _y + other._y;
-    sum.createVector();
-    return sum;
-}
-
 // return lvalue
 vect2& vect2::operator+=(const vect2& other) {
     this->_x = this->_x + other._x;
@@ -73,6 +64,29 @@ vect2& vect2::operator+=(const vect2& other) {
     return *this;
 }
 
+// returns rvalue
+vect2 vect2::operator+(const vect2& other) const {
+    vect2 sum = *this;
+    sum += other;
+    sum.createVector();
+    return sum;
+}
+
 int vect2::operator[](int index) {
     return _arr[index];
+}
+
+//prefix increment
+vect2& vect2::operator++() {
+    ++_x;
+    ++_y;
+    createVector();
+    return *this;
+}
+
+//postfix increment
+vect2 vect2::operator++(int) {
+    vect2 tmp = *this;
+    ++(*this);
+    return tmp; 
 }

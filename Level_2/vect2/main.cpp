@@ -11,8 +11,9 @@ int main() {
     cout << "v3: " << v3 << endl;
     cout << "v4: " << v4 << endl;
     cout << "v2 + v3: " << v2 + v3 << endl;
-    // cout << v4++ << endl;
-    // cout << ++v4 << endl;
+    cout << "++v4: " << ++v4 << endl;
+    cout << "v4++: " << v4++ << endl;
+    cout << "v4 after postincrementing: " << v4 << endl;
     // cout << v4-- << endl;
     // cout << --v4 << endl;
     cout << "v2 += v3: " << (v2 += v3) << endl;
