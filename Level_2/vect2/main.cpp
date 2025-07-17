@@ -5,6 +5,7 @@ int main() {
     vect2 v2(1, 2); // 1, 2
     const vect2 v3(v2); 
     vect2 v4 = v2;
+    vect2 v5(4, 4);
     cout << "v1: " << v1 << endl;
     cout << "v1: " << "{" << v1[0] << ", " << v1[1] << "}" << endl; // the same output
     cout << "v2: " << v2 << endl;
@@ -13,28 +14,32 @@ int main() {
     cout << "v2 + v3: " << v2 + v3 << endl;
     cout << "++v4: " << ++v4 << endl;
     cout << "v4++: " << v4++ << endl;
-    cout << "v4 after postincrementing: " << v4 << endl;
+    cout << "v4 after post-incrementing: " << v4 << endl;
     cout << "--v4: " << --v4 << endl;
     cout << "v4--: " << v4-- << endl;
-    cout << "v4 after postiderementing: " << v4 << endl;
+    cout << "v4 after post-derementing: " << v4 << endl;
     cout << "v2 += v3: " << (v2 += v3) << endl;
-    // v1 -= v2;
-    //v2 = v3 + v3 * 2;
-    cout << "v3: " << v3 << " v3 + v3 * 2: " << v3 + v3 * 2 << endl;
+    v1 -= v2;
+    v2 = v3 + v3 * 2;
     cout << "v2: " << v2 << endl;
     v2 = 3 * v2;
     cout << "v2 = 3 * v2: " << v2 << endl;
-    // v2 += v2 += v3;
-    // v1 *= 42;
-    // v1 = v1 - v1 + v1;
+    v5 = v2 * 0;
+    cout << "v5 * 0: " << v5 << endl;
+    v2 += v2 += v3;
+    cout << "v2 += v2 += v3: " << v2 << endl;
+    v5 = v1 *= 42;
+    cout << v5 << endl;
+    v1 = v1 - v1 + v1;
     cout << "v1: " << v1 << endl;
     cout << "v2: " << v2 << endl;
-    // cout << "-v2: " << -v2 << endl;
+    cout << "-v2: " << -v2 << endl;
     cout << "v1[1]: " << v1[1] << endl;
     v1[1] = 12;
     cout << "v1[1]: " << v1[1] << endl;
-    // cout << "v3[1]: " << v3[1] << endl;
-    cout << "v1 == v1 " << (v1 == v1) << endl;
-    cout << "v1 != v3 " << (v1 != v3) << endl;
+    cout << "v1[0]: " << v1[0] << endl;
+    cout << "v3[1]: " << v3[1] << endl;
+    cout << "v1 == v1: " << (v1 == v1) << endl;
+    cout << "v1 != v3: " << (v1 != v3) << endl;
 }
 

@@ -1,4 +1,4 @@
-`Copy assignment operator`
+# `COPY ASSIGNMENT OPERATOR`
 
 checks whether the object is being assigned to itself — that is, it prevents self-assignment.
 
@@ -20,7 +20,7 @@ Without this check, the assignment operator would proceed to copy the data from 
 
 `&other` is the address of the object on the right-hand side (b)
 
-`overload of the << operator`
+# `<< OVERLOADING`
 
 Used for printing our vect2 class to an output stream (like std::cout).
 
@@ -44,7 +44,7 @@ Passed as a const reference to:
 Avoid unnecessary copying
 Guarantee we won't modify `v` during printing
 
-`opearors + and += overloading`
+# `+ AND += OVERLOADING`
 
 operator+ should reuse operator+=.
 
@@ -71,6 +71,59 @@ Returning const prevents move assignment and chaining like:
 
 So, if `vect2` class doesn’t support assignment-to-temporaries, keeping const is okay. If it should support, return by copy.
 
-`++v (prefix increment) and v++ (postfix increment) operators`
+# `[] OVERLOADING`
 
+C++ uses const-correctness to decide which function to call
 
+1. Const version (for read-only access):
+
+`int vect2::operator[](int index) const {`
+    `return _arr[index];`
+`}`
+
+Used when the object is const, or when only read access is needed:
+
+`const vect2 v;`
+`int x = v[0];`  // Read-only access
+
+2. Non-const version (for modification):
+
+`int& vect2::operator[](int index) {`
+    `return _arr[index];`
+`}`
+Used when you want to modify the value:
+
+vect2 v;
+v[0] = 10;  // Modifies v 
+
+# `PRETFIX AND POSTFIX INCREMENT/DECREMENT OVERLOADING`
+
+1. Prefix incrementing/decrementing
+
+Modifies the object and reuses
+`x = ++v` → v is incremented before, so x gets the updated value.
+
+We return reference because we want:
+    1. the result can be used in chained expressions like:
+    `(--v1) -= v2;`
+    2. the result can be modified like here:
+    `(++v).x = 5;`
+
+2. Postfix incrementing/decrementing
+
+Return old value
+`x = v++` → v is incremented after, so x should get the original value.
+
+# `UNARY MINUS -V2 OVERLOADING`
+
+The expression `-v2` creates a new, temporary object that represents the negated version of `v2`. Since it's a new object, there's no reason (and no way) to return it as an lvalue reference.
+
+If we tried this:
+
+`vect2& vect2::operator-() const { ... }` // ❌ Wrong!
+
+We’d end up returning a reference to a temporary object — which leads to undefined behavior.
+
+`vect2 v2 = -v1;` // Calls operator-, returns temporary, assigns to `v2`
+
+`-v1` is a `prvalue` (pure rvalue) — a temporary value — and that's exactly what we want here.
