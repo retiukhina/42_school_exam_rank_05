@@ -60,5 +60,6 @@ int main() {
         std::cout << std::endl;
     } else {
         std::cout << "No unique elements are found\n";
-    }
+    } 
+    return 0;
 }
