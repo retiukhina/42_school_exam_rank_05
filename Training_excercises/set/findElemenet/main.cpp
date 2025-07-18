@@ -1,27 +1,26 @@
 #include <iostream>
 #include <set>
-using namespace std;
 
-void findElement(const set<char>& s, char e) {
+void findElement(const std::set<char>& s, char e) {
     if (s.find(e) == s.end()) {
-        cout << "Couldn't find " << e << endl;
+        std::cout << "Couldn't find " << e << std::endl;
     } else {
-        cout << "Found " << e << endl;
+        std::cout << "Found " << e << std::endl;
     }
 }
 
-void printSet(const set<char>& s, const string& m) {
-    cout << m;
+void printSet(const std::set<char>& s, const std::string& m) {
+    std::cout << m;
     if (s.empty()) {
-        cout << "(Set is empty)\n" << endl;
+        std::cout << "(Set is empty)\n" << std::endl;
     }
     for (auto itr = s.begin(); itr != s.end(); ++itr) {
-        cout << *itr << endl;
+        std::cout << *itr << std::endl;
     }
 }
 
 int main() {
-    set<char> s1 = {'C', 'D', 'C', 'D', 'A'};
+    std::set<char> s1 = {'C', 'D', 'C', 'D', 'A'};
     printSet(s1, "Set after creation\n");
 
     s1.insert('B');
