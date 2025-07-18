@@ -1,39 +1,39 @@
 #include <iostream>
 #include <set>
 #include <string>
+#include <fmt/core.h>
 
 // #define DEBUG
 
-void printSet(const std::set<char>& s) {
-    if (s.empty()) {
-        std::cout << "Set is empty";
-    }
-    else {
-        std::cout << "{ ";
-            for (char c : s) {
-            std::cout << c << ' ';
+void printUnique(const std::set<char>& s) {
+    if (!s.empty()) {
+        fmt::print("Unique elements in the first string: ");
+        for (char c : s) {
+            fmt::print("{} ", c);
         }
-        std::cout << "}";
-    }
+        fmt::print("\n");
+    } else {
+        fmt::print("No unique elements are found\n");
+    } 
 }
 
-std::set<char> findUniqueElements(const std::set <char>& s1, const std::set <char>& s2) {
-    std::set<char> unique;
+std::set<char> findUniqueElements(const std::string& s1, const std::string& s2) {
+    std::set<char> findUnique;
 
-    for (auto itr = s1.begin(); itr != s1.end(); ++itr) {
-        char element = *itr;
-        if (s2.find(*itr) == s2.end()) {
-            unique.insert(*itr);
-        }
+    for (int i = 0; i < s1.length(); ++i) {
+        char element = s1[i];
+        findUnique.insert(element);
         #ifdef DEBUG
         else {
-            std::cout << *itr << " exists in ";
-            printSet(s2);
-            std::cout << '\n';
+            std::cout << element << " exists in " << s2 << std::endl;
         }
         #endif
     }
-    return unique;
+    for (int i = 0; i < s2.length(); ++i) {
+        char element = s2[i];
+        findUnique.erase(element);
+    }
+    return findUnique;
 }
 
 int main() {
@@ -48,18 +48,10 @@ int main() {
     std::cout << "Enter string to search within: " << std::endl;
     getline(std::cin, s2);
 
-    std::set<char> set1(s1.begin(), s1.end()); // Range constructor from string iterators
-    std::set<char> set2(s2.begin(), s2.end());
     std::set<char> unique;
 
-    unique = findUniqueElements(set1, set2);
+    unique = findUniqueElements(s1, s2);
     std::cout << "\nThank you! We've searched for characters from: \n\"" << s1 << "\"\nthat are NOT present in: \n\"" << s2 << "\"\n\n";
-    if (!unique.empty()) {
-       std::cout << "Unique elements: ";
-        printSet(unique);
-        std::cout << std::endl;
-    } else {
-        std::cout << "No unique elements are found\n";
-    } 
+    printUnique(unique);
     return 0;
 }
