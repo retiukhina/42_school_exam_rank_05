@@ -2,25 +2,23 @@
 #include <set>
 #include <string>
 
-using namespace std;
-
 // #define DEBUG
 
-void printSet(const set<char>& s) {
+void printSet(const std::set<char>& s) {
     if (s.empty()) {
-        cout << "Set is empty";
+        std::cout << "Set is empty";
     }
     else {
-        cout << "{ ";
+        std::cout << "{ ";
             for (char c : s) {
-            cout << c << ' ';
+            std::cout << c << ' ';
         }
-        cout << "}";
+        std::cout << "}";
     }
 }
 
-set<char> findUniqueElements(const set <char>& s1, const set <char>& s2) {
-    set<char> unique;
+std::set<char> findUniqueElements(const std::set <char>& s1, const std::set <char>& s2) {
+    std::set<char> unique;
 
     for (auto itr = s1.begin(); itr != s1.end(); ++itr) {
         char element = *itr;
@@ -29,9 +27,9 @@ set<char> findUniqueElements(const set <char>& s1, const set <char>& s2) {
         }
         #ifdef DEBUG
         else {
-            cout << *itr << " exists in ";
+            std::cout << *itr << " exists in ";
             printSet(s2);
-            cout << '\n';
+            std::cout << '\n';
         }
         #endif
     }
@@ -40,27 +38,27 @@ set<char> findUniqueElements(const set <char>& s1, const set <char>& s2) {
 
 int main() {
     
-    string s1, s2;
+    std::string s1, s2;
 
-    cout << "\n===Unique Character Finder ===\n\n";
+    std::cout << "\n===Unique Character Finder ===\n\n";
 
-    cout << "Enter string to check for uniqueness: " << endl;
-    getline(cin, s1);
+    std::cout << "Enter string to check for uniqueness: " << std::endl;
+    getline(std::cin, s1);
 
-    cout << "Enter string to search within: " << endl;
-    getline(cin, s2);
+    std::cout << "Enter string to search within: " << std::endl;
+    getline(std::cin, s2);
 
-    set<char> set1(s1.begin(), s1.end()); // Range constructor from string iterators
-    set<char> set2(s2.begin(), s2.end());
-    set<char> unique;
+    std::set<char> set1(s1.begin(), s1.end()); // Range constructor from string iterators
+    std::set<char> set2(s2.begin(), s2.end());
+    std::set<char> unique;
 
     unique = findUniqueElements(set1, set2);
-    cout << "\nThank you! We've searched for characters from: \n\"" << s1 << "\"\nthat are NOT present in: \n\"" << s2 << "\".\n\n";
+    std::cout << "\nThank you! We've searched for characters from: \n\"" << s1 << "\"\nthat are NOT present in: \n\"" << s2 << "\"\n\n";
     if (!unique.empty()) {
-        cout << "Unique elements: ";
+       std::cout << "Unique elements: ";
         printSet(unique);
-        cout << endl;
+        std::cout << std::endl;
     } else {
-        cout << "No unique elements are found\n";
+        std::cout << "No unique elements are found\n";
     }
 }
