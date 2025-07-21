@@ -75,40 +75,40 @@ int main() {
     const vect2 v3(v2); 
     vect2 v4 = v2;
     vect2 v5(4, 4);
-    cout << "v1: " << v1 << endl;
-    cout << "v1: " << "{" << v1[0] << ", " << v1[1] << "}" << endl; // the same output
-    cout << "v2: " << v2 << endl;
-    cout << "v3: " << v3 << endl;
-    cout << "v4: " << v4 << endl;
+    std::cout << "v1: " << v1 << std::endl;
+    std::cout << "v1: " << "{" << v1[0] << ", " << v1[1] << "}" << std::endl; // the same output
+    std::cout << "v2: " << v2 << std::endl;
+    std::cout << "v3: " << v3 << std::endl;
+    std::cout << "v4: " << v4 << std::endl;
 
-    cout << "v2 + v3: " << v2 + v3 << endl;
-    cout << "++v4: " << ++v4 << endl;
-    cout << "v4++: " << v4++ << endl;
-    cout << "--v4: " << --v4 << endl;
-    cout << "v4--: " << v4-- << endl;
-    cout << "v2 += v3: " << (v2 += v3) << endl;
+    std::cout << "v2 + v3: " << v2 + v3 << std::endl;
+    std::cout << "++v4: " << ++v4 << std::endl;
+    std::cout << "v4++: " << v4++ << std::endl;
+    std::cout << "--v4: " << --v4 << std::endl;
+    std::cout << "v4--: " << v4-- << std::endl;
+    std::cout << "v2 += v3: " << (v2 += v3) << std::endl;
     v1 -= v2;
     v2 = v3 + v3 * 2;
-    cout << "v2: " << v2 << endl;
+    std::cout << "v2: " << v2 << std::endl;
     v2 = 3 * v2;
-    cout << "v2 = 3 * v2: " << v2 << endl;
+    std::cout << "v2 = 3 * v2: " << v2 << std::endl;
     v5 = v2 * 0;
-    cout << "v5 * 0: " << v5 << endl;
+    std::cout << "v5 * 0: " << v5 << std::endl;
     v2 += v2 += v3;
-    cout << "v2 += v2 += v3: " << v2 << endl;
+    std::cout << "v2 += v2 += v3: " << v2 << std::endl;
     v5 = v1 *= 42;
-    cout << v5 << endl;
+    std::cout << v5 << std::endl;
     v1 = v1 - v1 + v1;
-    cout << "v1: " << v1 << endl;
-    cout << "v2: " << v2 << endl;
-    cout << "-v2: " << -v2 << endl;
-    cout << "v1[1]: " << v1[1] << endl;
+    std::cout << "v1: " << v1 << std::endl;
+    std::cout << "v2: " << v2 << std::endl;
+    std::cout << "-v2: " << -v2 << std::endl;
+    std::cout << "v1[1]: " << v1[1] << std::endl;
     v1[1] = 12;
-    cout << "v1[1]: " << v1[1] << endl;
-    cout << "v1[0]: " << v1[0] << endl;
-    cout << "v3[1]: " << v3[1] << endl;
-    cout << "v1 == v1: " << (v1 == v1) << endl;
-    cout << "v1 != v3: " << (v1 != v3) << endl;
+    std::cout << "v1[1]: " << v1[1] << std::endl;
+    std::cout << "v1[0]: " << v1[0] << std::endl;
+    std::cout << "v3[1]: " << v3[1] << std::endl;
+    std::cout << "v1 == v1: " << (v1 == v1) << std::endl;
+    std::cout << "v1 != v3: " << (v1 != v3) << std::endl;
 
     //my tests
     test_1();
